@@ -17,6 +17,7 @@ abstract class AbstractPage {
 
     protected \Mustache_Engine $mustache;
     private array $outputarray;
+    protected bool $hastags;
 
     /**
      * Construct an instance of a page.

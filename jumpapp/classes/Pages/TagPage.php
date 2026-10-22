@@ -17,6 +17,8 @@ use \Jump\Exceptions\TagNotFoundException;
 
 class TagPage extends AbstractPage {
 
+    private string $tagname;
+
     protected function render_header(): string {
         $template = $this->mustache->loadTemplate('header');
         $this->tagname = $this->routeparams['tag'];
