@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+### Security
+- Rebuild on the official `php:8.5-fpm-alpine` image (PHP 8.5.12) to fix the
+  "PHP2Shell" remote code execution vulnerabilities (CVE-2026-109618 and
+  CVE-2026-109619). PHP 8.1 is end of life and will not receive the fix.
+- Update composer dependencies, including Guzzle and Tracy, for PHP 8.5 support.
+
+### Fixed
+- Declare class properties that were previously created dynamically, which is
+  deprecated from PHP 8.2.
+
 ## [1.4.1] - 2024-04-16
 ### Fixed
 - Issue #113: Fix incorrectly parsed debug setting.

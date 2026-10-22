@@ -139,7 +139,7 @@ class Cache {
      * @param callable $callback The code from which the result should be stored in cache.
      * @return mixed The result of callback function retreieved from cache.
      */
-    public function load(string $cachename, ?string $key = 'default', callable $callback = null): mixed {
+    public function load(string $cachename, ?string $key = 'default', ?callable $callback = null): mixed {
         $this->init_cache($cachename, $key);
         // Retrieve the initialised cache object from $caches.
         if ($callback === null) {

@@ -24,6 +24,7 @@ class Background {
 
     private string $backgroundsdirectory;
     private array $backgroundfiles;
+    private string $webaccessibledir;
 
     public function __construct(private Config $config) {
         $this->config = $config;

@@ -24,6 +24,9 @@ class Site {
     public string $id;
     public string $name;
     public bool $nofollow;
+    public $newtab;
+    public $description;
+    public $status;
     public ?string $iconname;
     public string $url;
     public array $tags = ['home'];
