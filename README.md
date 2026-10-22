@@ -29,7 +29,14 @@ Note - the demo instance is hosted on a render.com free tier so may take a few s
 
 ### Docker Compose
 
-Get the container image from Docker Hub (https://hub.docker.com/r/daledavies/jump).
+Build the container image from this repository. The `daledavies/jump` image on Docker Hub is no longer maintained and runs an end-of-life PHP version, so don't use it.
+
+```bash
+git clone https://github.com/xavierellis/jump.git
+cd jump
+```
+
+To pick up PHP security updates, pull the latest changes and rebuild with `docker compose build --pull && docker compose up -d`.
 
 The following will start Jump and serve the page at http://localhost:8123 with a custom site name, Open Weather Map support, and volumes to map Jump's "backgrounds", "favicon", "search" and "sites" directories to local directories on your machine.
 `OWMAPIKEY` and `LATLONG` values below are just for example - refer to the [environment variables](https://github.com/daledavies/jump?tab=readme-ov-file#environment-variables).
@@ -38,7 +45,8 @@ The following will start Jump and serve the page at http://localhost:8123 with a
 version: '3'
 services:
     web:
-        image: daledavies/jump
+        build: .
+        image: jump:local
         ports:
             - 8123:8080
         volumes:
@@ -61,6 +69,7 @@ You can map the "backgrounds",  "favicon", "search" and "sites" directories to l
 The same can be achieved just using Docker CLI...
 
 ```bash
+docker build --pull -t jump:local .
 docker run -d -p 8123:8080 \
 --volume <path/to/backgrounds>:/backgrounds \
 --volume <path/to/favicon>:/favicon \
@@ -69,7 +78,7 @@ docker run -d -p 8123:8080 \
 --env SITENAME='Custom site name' \
 --env OWMAPIKEY='<open weather api key>' \
 --env LATLONG='<lat,long>' \
---name jump docker.io/daledavies/jump
+--name jump jump:local
 ```
 
 ### Kubernetes

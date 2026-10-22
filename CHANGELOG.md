@@ -10,8 +10,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   "PHP2Shell" remote code execution vulnerabilities (CVE-2026-109618 and
   CVE-2026-109619). PHP 8.1 is end of life and will not receive the fix.
 - Update composer dependencies, including Guzzle and Tracy, for PHP 8.5 support.
-- Rebuild and publish the Docker image weekly so new PHP security releases are
-  picked up automatically.
 
 ### Fixed
 - Declare class properties that were previously created dynamically, which is
